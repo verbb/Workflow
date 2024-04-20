@@ -4,7 +4,6 @@ return [
   //
   // Email Messages
   //
-
   'workflow_publisher_notification_heading' => 'When an editor submits entry for approval:',
   'workflow_publisher_notification_subject' => '"{{ submission.ownerTitle }}" has been submitted for approval on {{ submission.getOwnerSite() }}.',
   'workflow_publisher_notification_body' => "Hey {{ user.friendlyName }},\n\n" .
@@ -113,18 +112,6 @@ return [
   'View submissions' => 'View submissions',
   'Workflow' => 'Workflow',
   'Workflow Submissions' => 'Workflow Submissions',
-  'workflow_editor_notification_body' => 'workflow_editor_notification_body',
-  'workflow_editor_notification_heading' => 'workflow_editor_notification_heading',
-  'workflow_editor_notification_subject' => 'workflow_editor_notification_subject',
-  'workflow_editor_review_notification_body' => 'workflow_editor_review_notification_body',
-  'workflow_editor_review_notification_heading' => 'workflow_editor_review_notification_heading',
-  'workflow_editor_review_notification_subject' => 'workflow_editor_review_notification_subject',
-  'workflow_published_author_notification_body' => 'workflow_published_author_notification_body',
-  'workflow_published_author_notification_heading' => 'workflow_published_author_notification_heading',
-  'workflow_published_author_notification_subject' => 'workflow_published_author_notification_subject',
-  'workflow_publisher_notification_body' => 'workflow_publisher_notification_body',
-  'workflow_publisher_notification_heading' => 'workflow_publisher_notification_heading',
-  'workflow_publisher_notification_subject' => 'workflow_publisher_notification_subject',
   'You cannot approve your own submission.' => 'You cannot approve your own submission.',
   '[Deleted element]' => '[Deleted element]',
   '{role} Notes: “{note}”' => '{role} Notes: “{note}”',
