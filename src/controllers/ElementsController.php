@@ -121,7 +121,8 @@ class ElementsController extends Controller
         if ($redirectUrl) {
             $urlParams = parse_url($redirectUrl);
             $pathParts = explode('/', $urlParams['path']);
-            $elementId = end($pathParts);
+            $elementIdSlug = end($pathParts);
+            $elementId = explode('-', $elementIdSlug)[0] ?? null;
             $queryParams = [];
 
             foreach (explode('&', $urlParams['query']) as $urlParam) {

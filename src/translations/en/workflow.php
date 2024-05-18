@@ -34,7 +34,7 @@ return [
     "Your entry {{ submission.ownerTitle }} has been published {{ review.dateCreated | date }} on {{ submission.ownerSite }}.\n\n" .
     "View your entry by logging into your control panel.\n\n" .
     "{{ submission.ownerCpUrl }}",
-    
+
   'Action #{num}' => 'Action #{num}',
   'All submissions' => 'All submissions',
   'Approve and publish' => 'Approve and publish',
@@ -55,6 +55,10 @@ return [
   'Entry' => 'Entry',
   'Entry approved and published.' => 'Entry approved and published.',
   'Entry submitted for approval.' => 'Entry submitted for approval.',
+  'Failed to send editor notification to {value} - “{message}” {file}:{line}' => 'Failed to send editor notification to {value} - “{message}” {file}:{line}',
+  'Failed to send published author notification to {value} - “{message}” {file}:{line}' => 'Failed to send published author notification to {value} - “{message}” {file}:{line}',
+  'Failed to send publisher notification to {value} - “{message}” {file}:{line}' => 'Failed to send publisher notification to {value} - “{message}” {file}:{line}',
+  'Failed to send reviewer notification to {value} - “{message}” {file}:{line}' => 'Failed to send reviewer notification to {value} - “{message}” {file}:{line}',
   'Last Reviewed' => 'Last Reviewed',
   'Last Reviewed By' => 'Last Reviewed By',
   'No review exists with the ID “{id}”.' => 'No review exists with the ID “{id}”.',
@@ -78,7 +82,6 @@ return [
   'Select all, or specific publishers to receive email notifications. By default, all will be notified.' => 'Select all, or specific publishers to receive email notifications. By default, all will be notified.',
   'Select a Publisher User Group first.' => 'Select a Publisher User Group first.',
   'Set status' => 'Set status',
-  'Settings' => 'Settings',
   'Site' => 'Site',
   'Status' => 'Status',
   'Statuses updated.' => 'Statuses updated.',
