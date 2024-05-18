@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.10 - 2024-05-18
+
+### Changed
+- Update non-English translations.
+- Update English translations.
+
+### Fixed
+- Fix an error when trying to resolve an entry from front-end submissions.
+
 ## 2.0.9 - 2024-03-04
 
 ### Fixed
