@@ -149,10 +149,10 @@ class Content extends Component
 
     private function _arrayMultisum(array $arr): float
     {
-        $sum = array_sum($arr);
+        $sum = 0;
 
-        foreach($arr as $child) {
-            $sum += is_array($child) ? $this->_arrayMultisum($child) : 0;
+        foreach ($arr as $child) {
+            $sum += is_array($child) ? $this->_arrayMultisum($child) : 1;
         }
 
         return $sum;
