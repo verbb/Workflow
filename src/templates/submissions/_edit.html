@@ -152,7 +152,13 @@
         </div>
 
         <div class="input ltr">
-            {{ elementChip(submission.getDraft() ?? submission.getOwner()) }}
+            {% set element = submission.getDraft() ?? submission.getOwner() %}
+
+            {% if element %}
+                {{ elementChip(element) }}
+            {% else %}
+                {{ '[Deleted element]' | t('workflow') }}
+            {% endif %}
         </div>
     </div>
 
