@@ -1,6 +1,41 @@
 <?php
 
 return [
+  //
+  // Email Messages
+  //
+  'workflow_publisher_notification_heading' => 'When an editor submits entry for approval:',
+  'workflow_publisher_notification_subject' => '"{{ submission.ownerTitle }}" has been submitted for approval on {{ submission.getOwnerSite() }}.',
+  'workflow_publisher_notification_body' => "Hey {{ user.friendlyName }},\n\n" .
+    "{{ review.user }} has submitted the entry \"{{ submission.ownerTitle }}\" for approval on {{ submission.ownerSite }}.\n\n" .
+    "{% if review.notes %}{{ review.roleName }} Notes: \"{{ review.notes }}\"\n\n{% endif %}" .
+    "To review it please log into your control panel.\n\n" .
+    "{{ submission.ownerCpUrl }}",
+
+  'workflow_editor_review_notification_heading' => 'When a reviewer approves or rejects an editor submission:',
+  'workflow_editor_review_notification_subject' => 'Your submission for "{{ submission.ownerTitle }}" has been {{ review.status }} on {{ submission.ownerSite }}.',
+  'workflow_editor_review_notification_body' => "Hey {{ user.friendlyName }},\n\n" .
+    "Your submission for {{ submission.ownerTitle }} has been {{ review.status }} {{ review.dateCreated | date }} on {{ submission.ownerSite }}.\n\n" .
+    "{% if review.notes %}{{ review.roleName }} Notes: \"{{ review.notes }}\"\n\n{% endif %}" .
+    "View your submission by logging into your control panel.\n\n" .
+    "{{ submission.ownerCpUrl }}",
+
+  'workflow_editor_notification_heading' => 'When a publisher approves or rejects an editor submission:',
+  'workflow_editor_notification_subject' => 'Your submission for "{{ submission.ownerTitle }}" has been {{ review.status }} on {{ submission.ownerSite }}.',
+  'workflow_editor_notification_body' => "Hey {{ user.friendlyName }},\n\n" .
+    "Your submission for {{ submission.ownerTitle }} has been {{ review.status }} {{ review.dateCreated | date }} on {{ submission.ownerSite }}.\n\n" .
+    "{% if review.notes %}{{ review.roleName }} Notes: \"{{ review.notes }}\"\n\n{% endif %}" .
+    "View your submission by logging into your control panel.\n\n" .
+    "{{ submission.ownerCpUrl }}",
+
+  'workflow_published_author_notification_heading' => 'When a publisher approves and publishes an entry to notify the entry author:',
+  'workflow_published_author_notification_subject' => 'Your entry "{{ submission.ownerTitle }}" has been published on {{ submission.ownerSite }}.',
+  'workflow_published_author_notification_body' => "Hey {{ user.friendlyName }},\n\n" .
+    "Your entry {{ submission.ownerTitle }} has been published {{ review.dateCreated | date }} on {{ submission.ownerSite }}.\n\n" .
+    "View your entry by logging into your control panel.\n\n" .
+    "{{ submission.ownerCpUrl }}",
+
+
   'Action #{num}' => 'Action #{num}',
   'Add a user group' => 'Add a user group',
   'All' => 'All',
@@ -130,18 +165,6 @@ return [
   'Whether publishers are required to enter a note in their submissions.' => 'Whether publishers are required to enter a note in their submissions.',
   'Workflow' => 'Workflow',
   'Workflow Submissions' => 'Workflow Submissions',
-  'workflow_editor_notification_body' => 'workflow_editor_notification_body',
-  'workflow_editor_notification_heading' => 'workflow_editor_notification_heading',
-  'workflow_editor_notification_subject' => 'workflow_editor_notification_subject',
-  'workflow_editor_review_notification_body' => 'workflow_editor_review_notification_body',
-  'workflow_editor_review_notification_heading' => 'workflow_editor_review_notification_heading',
-  'workflow_editor_review_notification_subject' => 'workflow_editor_review_notification_subject',
-  'workflow_published_author_notification_body' => 'workflow_published_author_notification_body',
-  'workflow_published_author_notification_heading' => 'workflow_published_author_notification_heading',
-  'workflow_published_author_notification_subject' => 'workflow_published_author_notification_subject',
-  'workflow_publisher_notification_body' => 'workflow_publisher_notification_body',
-  'workflow_publisher_notification_heading' => 'workflow_publisher_notification_heading',
-  'workflow_publisher_notification_subject' => 'workflow_publisher_notification_subject',
   'You cannot approve your own submission.' => 'You cannot approve your own submission.',
   '[Deleted element]' => '[Deleted element]',
   '{role} Notes: “{note}”' => '{role} Notes: “{note}”',
