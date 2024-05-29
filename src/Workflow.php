@@ -86,7 +86,7 @@ class Workflow extends Plugin
             $this->_registerResaveCommand();
         }
         
-        if (Craft::$app->getEdition() === Craft::Pro) {
+        if (Craft::$app->getEdition() !== Craft::Solo) {
             $this->_registerPermissions();
         }
     }
