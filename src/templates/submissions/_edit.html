@@ -29,28 +29,26 @@
 {% block actionButton %}
 
 {% if canEdit %}
-    <div class="buttons">
-        <div class="btngroup submit">
-            <input type="submit" class="btn submit" value="{{ 'Save' | t('workflow') }}">
+    <div class="btngroup submit">
+        <input type="submit" class="btn submit" value="{{ 'Save' | t('workflow') }}">
 
-            <div class="btn submit menubtn"></div>
-            <div class="menu">
+        <div class="btn submit menubtn"></div>
+        <div class="menu">
+            <ul>
+                <li>
+                    <a class="formsubmit" data-redirect="{{ saveShortcutRedirect | hash }}">
+                        {{ 'Save and continue editing' | t('app') }}
+                        <span class="shortcut">⌘S</span>
+                    </a>
+                </li>
+            </ul>
+
+            {% if not isNew %}
+                <hr>
                 <ul>
-                    <li>
-                        <a class="formsubmit" data-redirect="{{ saveShortcutRedirect | hash }}">
-                            {{ 'Save and continue editing' | t('app') }}
-                            <span class="shortcut">⌘S</span>
-                        </a>
-                    </li>
+                    <li><a class="formsubmit error" data-action="workflow/submissions/delete-submission" data-confirm="{{ 'Are you sure you want to delete this submission?' | t('workflow') }}" data-redirect="{{ 'workflow/submissions' | hash }}">{{ 'Delete' | t('app') }}</a></li>
                 </ul>
-
-                {% if not isNew %}
-                    <hr>
-                    <ul>
-                        <li><a class="formsubmit error" data-action="workflow/submissions/delete-submission" data-confirm="{{ 'Are you sure you want to delete this submission?' | t('workflow') }}" data-redirect="{{ 'workflow/submissions' | hash }}">{{ 'Delete' | t('app') }}</a></li>
-                    </ul>
-                {% endif %}
-            </div>
+            {% endif %}
         </div>
     </div>
 {% endif %}
