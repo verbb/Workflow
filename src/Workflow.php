@@ -111,7 +111,7 @@ class Workflow extends Plugin
 
         if ($currentUser->can('workflow-overview') && $currentUser->can('accessPlugin-workflow')) {
             $nav['subnav']['overview'] = [
-                'label' => Craft::t('workflow', 'Overview'),
+                'label' => Craft::t('workflow', 'Submissions'),
                 'url' => 'workflow',
             ];
         }
@@ -225,7 +225,7 @@ class Workflow extends Plugin
             $event->permissions[] = [
                 'heading' => Craft::t('workflow', 'Workflow'),
                 'permissions' => [
-                    'workflow-overview' => ['label' => Craft::t('workflow', 'Overview')],
+                    'workflow-overview' => ['label' => Craft::t('workflow', 'Submissions')],
                 ],
             ];
         });
