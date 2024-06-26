@@ -107,6 +107,15 @@ class Workflow extends Plugin
 
         $nav['label'] = $this->getPluginName();
 
+        $currentUser = Craft::$app->getUser()->getIdentity();
+
+        if ($currentUser->can('workflow-overview') && $currentUser->can('accessPlugin-workflow')) {
+            $nav['subnav']['overview'] = [
+                'label' => Craft::t('workflow', 'Overview'),
+                'url' => 'workflow',
+            ];
+        }
+
         if (Craft::$app->getUser()->getIsAdmin() && Craft::$app->getConfig()->getGeneral()->allowAdminChanges) {
             $nav['subnav']['settings'] = [
                 'label' => Craft::t('workflow', 'Settings'),
