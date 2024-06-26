@@ -75,7 +75,7 @@ class Workflow extends Plugin
             // Only show the menu item if user has permission to overview
             Craft::$app->on(Application::EVENT_INIT, function() {
                 if ($currentUser = Craft::$app->getUser()->getIdentity()) {
-                    if ($currentUser->can('workflow-overview')) {
+                    if ($currentUser->can('workflow-overview') && $currentUser->can('accessPlugin-workflow')) {
                         $this->hasCpSection = true;
                     }
                 }
