@@ -141,7 +141,7 @@ class Review extends Model
     public function getElementRevision(): ?ElementInterface
     {
         $element = $this->getElement();
-        $attributes = $this->data;
+        $attributes = $this->data ?? [];
         $fieldContent = ArrayHelper::remove($attributes, 'fields') ?? [];
 
         // The element/draft on the review might've been deleted (applied)
@@ -196,7 +196,7 @@ class Review extends Model
         $oldReview = Workflow::$plugin->getReviews()->getPreviousReviewById($this->id);
 
         if ($oldReview) {
-            return (bool)Workflow::$plugin->getContent()->getDiff($oldReview->data, $this->data);
+            return (bool)Workflow::$plugin->getContent()->getDiff($oldReview->data, ($this->data ?? []));
         }
 
         return false;
