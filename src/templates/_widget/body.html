@@ -6,7 +6,7 @@
             <div class="workflow-block">
                 {% include '_elements/element' with { element: submission } %}
 
-                <small>{{ submission.dateCreated | timestamp('short') }}</small>
+                <small>{{ submission.dateCreated | timestamp('short') }}: {{ submission.getEditor() }}</small>
             </div>
         {% endfor %}
     {% else %}
