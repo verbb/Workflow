@@ -196,7 +196,7 @@ class Review extends Model
         $oldReview = Workflow::$plugin->getReviews()->getPreviousReviewById($this->id);
 
         if ($oldReview) {
-            return (bool)Workflow::$plugin->getContent()->getDiff($oldReview->data, ($this->data ?? []));
+            return (bool)Workflow::$plugin->getContent()->getDiff(($oldReview->data ?? []), ($this->data ?? []));
         }
 
         return false;
