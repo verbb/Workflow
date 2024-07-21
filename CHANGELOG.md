@@ -4,13 +4,23 @@
 
 ### Added
 - Add editor name to submission dashboard widget items.
+- Add error handling when trying to set a non-pending submission to pending.
+- Add the “Overview” subnav item to the Workflow menu.
+- Add Craft Teams support for permissions.
 
 ### Changed
 - Update non-English translations.
 - Update English translations.
+- “Overview” has been changed to “Submissions”.
 
 ### Fixed
 - Fix an error when comparing reviews with no data.
+- Fix submission edit breadcrumb.
+- Fix submission edit save button alignment.
+- Fix permissions check for viewing submissions.
+- Fix viewing a submission when the element was deleted.
+- Fix a PHP 8.3 error.
+- Fix summary number alignments.
 
 ## 3.0.0 - 2024-05-18
 
