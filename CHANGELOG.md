@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.0.1 - 2024-07-21
+
+### Added
+- Add editor name to submission dashboard widget items.
+
+### Changed
+- Update non-English translations.
+- Update English translations.
+
+### Fixed
+- Fix an error when comparing reviews with no data.
+
 ## 3.0.0 - 2024-05-18
 
 ### Changed
