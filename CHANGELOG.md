@@ -6,6 +6,18 @@
 - Now requires PHP `8.2.0+`.
 - Now requires Craft `5.0.0+`.
 
+## 2.0.11 - 2024-07-21
+
+### Added
+- Add editor name to submission dashboard widget items.
+
+### Changed
+- Update non-English translations.
+- Update English translations.
+
+### Fixed
+- Fix an error when comparing reviews with no data.
+
 ## 2.0.10 - 2024-05-18
 
 ### Changed

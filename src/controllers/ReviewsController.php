@@ -35,7 +35,7 @@ class ReviewsController extends Controller
         $variables = [
             'newReview' => $newReview,
             'oldReview' => $oldReview,
-            'diff' => Workflow::$plugin->getContent()->getDiff($oldReview->data, $newReview->data),
+            'diff' => Workflow::$plugin->getContent()->getDiff(($oldReview->data ?? []), ($newReview->data ?? [])),
             'title' => "Compare review #{$oldReview->id} to #{$newReview->id}",
         ];
 
@@ -80,7 +80,7 @@ class ReviewsController extends Controller
 
         $html = $view->renderTemplate('workflow/reviews/_compare-modal', [
             'review' => $newReview,
-            'diff' => Workflow::$plugin->getContent()->getDiff($oldReview->data, $newReview->data),
+            'diff' => Workflow::$plugin->getContent()->getDiff(($oldReview->data ?? []), ($newReview->data ?? [])),
         ]);
 
         $headHtml = $view->getHeadHtml();
