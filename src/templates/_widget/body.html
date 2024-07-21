@@ -8,6 +8,7 @@
 
                 <a href="{{ submission.getCpEditUrl() }}">
                     <span class="username">{{ submission.uiLabel() }}</span>
+                    <small>{{ submission.dateCreated | timestamp('short') }}: {{ submission.getEditor() }}</small>
                 </a>
             </div>
         {% endfor %}
