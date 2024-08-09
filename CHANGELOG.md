@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.2 - 2024-08-09
+
+### Fixed
+- Fix email messages translations.
+
 ## 3.0.1 - 2024-07-21
 
 ### Added
