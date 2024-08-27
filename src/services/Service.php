@@ -44,6 +44,11 @@ class Service extends Component
             return;
         }
 
+        // Don't trigger for Matrix/etc which are entries
+        if ($event->sender->fieldId) {
+            return;
+        }
+
         $currentSite = Craft::$app->getSites()->getCurrentSite();
 
         // Sanitize notes first
@@ -143,6 +148,11 @@ class Service extends Component
     public function onAfterSaveElement(ElementEvent $event): void
     {
         if (!($event->element instanceof Entry)) {
+            return;
+        }
+
+        // Don't trigger for Matrix/etc which are entries
+        if ($event->element->fieldId) {
             return;
         }
 
