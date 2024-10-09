@@ -32,6 +32,29 @@ This permission isn't required for [front-end submissions](docs:template-guides/
 
 Things to note are disabling access to the Workflow plugin page, and disabling the ability to `Save entries` which controls publishing live changes.
 
+### Reviewers
+You can also make use of more "steps" in the reviewal process by adding Reviewers - as many as you like - between Editors and Publishers.
+
+**General**
+- ☐ Access the site when the system is off
+- ☑ Access the control panel
+    - ☐ Access the control panel when the system is offline
+    - ☐ Perform Craft CMS and plugin updates
+    - ☐ Access Workflow
+
+**Section - Pages**
+- ☑ View entries
+    - ☑ Create entries
+    - ☐ Save entries
+    - ☐ Delete entries
+    - ☑ View other users’ entries
+        - ☐ Save other users’ entries
+        - ☐ Delete other users’ entries
+    - ☑ View other users’ drafts
+        - ☑ Save other users’ drafts
+        - ☐ Delete other users’ drafts
+
+
 ### Publishers
 Create another User Group called "Publisher" with the following settings:
 
@@ -58,12 +81,7 @@ Create another User Group called "Publisher" with the following settings:
 - ☑ Overview
 - ☐ Settings
 
-You can name either of these groups whatever you like, but we'll refer to them as Editor/Publisher throughout the guide.
-
-### Reviewers
-You can also make use of more "steps" in the reviewal process by adding Reviewers - as many as you like - between Editors and Publishers.
-
-Reviewers have the same permissions as Publishers.
+You can name either of these groups whatever you like, but we'll refer to them as Editor/Reviewer/Publisher throughout the guide.
 
 ## Plugin Settings
 Next, head to the plugin settings for Workflow, and assign both these groups you created to their respective fields. Easy as that!
