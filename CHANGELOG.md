@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.4 - 2024-10-09
+
+### Fixed
+- Add the ability to filter submissions for specific sites on the Recent Submissions dashboard widget.
+
 ## 3.0.3 - 2024-09-07
 
 ### Fixed
