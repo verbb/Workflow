@@ -178,7 +178,7 @@ class Review extends Model
             return Template::raw($user);
         }
 
-        return null;
+        return Template::raw(Craft::t('workflow', '[Deleted User]'));
     }
 
     public function getStatusName(): ?string

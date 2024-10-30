@@ -2,7 +2,7 @@
 {% set statusText = (review.status == 'pending') ? 'created' | t('workflow') : review.status %}
 
 <div class="workflow-compare-review-heading">
-    <label class="review-count">{{ review.userUrl }} {{ '{status} this submission on {date}.' | t('workflow', { status: statusText, date: review.dateCreated | datetime('medium') }) }}</label>
+    <label class="review-count">{{ review.getUserUrl() }} {{ '{status} this submission on {date}.' | t('workflow', { status: statusText, date: review.dateCreated | datetime('medium') }) }}</label>
     <label class="review-status-badge {{ review.status }}">{{ statusText }}</label>
 </div>
 
