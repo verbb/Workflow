@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.5 - 2024-11-28
+
+### Fixed
+- Fix when deleting a Craft User that owned a review, would also delete that review.
+- Fix an error when approving a submission. (thanks @iainsaxon).
+
 ## 3.0.4 - 2024-10-09
 
 ### Fixed
