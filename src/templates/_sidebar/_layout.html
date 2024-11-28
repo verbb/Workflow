@@ -37,7 +37,7 @@
 
                     <div id="{{ anchorKey }}" class="workflow-history-info hidden">
                         <div class="instructions">
-                            <p>{{ review.userUrl }} {{ '{status} this submission on {date}.' | t('workflow', { status: statusText, date: review.dateCreated | datetime('medium') }) }}</p>
+                            <p>{{ review.getUserUrl() }} {{ '{status} this submission on {date}.' | t('workflow', { status: statusText, date: review.dateCreated | datetime('medium') }) }}</p>
 
                             {% if review.notes %}
                                 <p class="code">{{ '{role} Notes: “{note}”' | t('workflow', { role: review.roleName, note: review.notes }) | raw }}</p>

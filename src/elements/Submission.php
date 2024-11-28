@@ -187,7 +187,7 @@ class Submission extends Element
             return $owner->getSupportedSites();
         }
 
-        return Craft::$app->getSites()->getAllSites();
+        return Craft::$app->getSites()->getAllSiteIds();
     }
 
     public function setOwner(Entry $owner): void
