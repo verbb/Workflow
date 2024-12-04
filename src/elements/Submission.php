@@ -113,9 +113,8 @@ class Submission extends Element
     protected static function defineSortOptions(): array
     {
         return [
+            'id' => Craft::t('workflow', 'Submission'),
             'ownerId' => Craft::t('workflow', 'Entry'),
-            'editorId' => Craft::t('workflow', 'Editor'),
-            'publisherId' => Craft::t('workflow', 'Publisher'),
             'lastReviewDate' => Craft::t('workflow', 'Last Reviewed'),
             'dateCreated' => Craft::t('workflow', 'Date Submitted'),
         ];
