@@ -201,6 +201,32 @@ class Service extends Component
         }
     }
 
+    public function onAfterApplyDraft(DraftEvent $event): void
+    {
+        if (!($event->draft instanceof Entry)) {
+            return;
+        }
+
+        // Check if a publisher has applied the draft by mistake, and there's a pending submission. Just mark as done.
+        $submission = Submission::find()
+            ->ownerId($event->draft->getCanonicalId())
+            ->ownerSiteId($event->draft->siteId)
+            ->ownerDraftId($event->draft->draftId)
+            ->limit(1)
+            ->isComplete(false)
+            ->isPending(true)
+            ->one();
+
+        if ($submission) {
+            $currentUser = Craft::$app->getUser()->getIdentity();
+
+            // Ensure current user is allowed to publish the submission
+            if ($submission->canUserPublish($currentUser, $event->draft->site)) {
+                Workflow::$plugin->getSubmissions()->approveSubmission($event->draft);
+            }
+        }
+    }
+
     public function renderEntrySidebar(DefineHtmlEvent $event): void
     {
         $entry = $event->sender;

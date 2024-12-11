@@ -407,6 +407,13 @@ class Submission extends Element
         return $canReview;
     }
 
+    public function canUserPublish(User $user, $site): bool
+    {
+        $settings = Workflow::$plugin->getSettings();
+
+        return $user->isInGroup($settings->getPublisherUserGroup($site));
+    }
+
     public function afterSave(bool $isNew): void
     {
         if (!$isNew) {

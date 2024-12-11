@@ -185,6 +185,8 @@ class Workflow extends Plugin
         // Use `Entry::EVENT_BEFORE_SAVE` in order to add validation errors. `Elements::EVENT_BEFORE_SAVE_ELEMENT` doesn't work
         Event::on(Entry::class, Entry::EVENT_BEFORE_SAVE, [$this->getService(), 'onBeforeSaveEntry']);
 
+        Event::on(Drafts::class, Drafts::EVENT_AFTER_APPLY_DRAFT, [$this->getService(), 'onAfterApplyDraft']);
+
         // Use `Elements::EVENT_AFTER_SAVE_ELEMENT` so that the element is fully finished with propagating, etc.
         Event::on(Elements::class, Elements::EVENT_AFTER_SAVE_ELEMENT, [$this->getService(), 'onAfterSaveElement']);
 
