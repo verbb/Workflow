@@ -56,34 +56,15 @@
     warning: macros.configWarning('publisherNotifications', 'workflow'),
 }) }}
 
-{% if settings.publisherUserGroup %}
-    {{ forms.checkboxSelectField({
-        label: 'Publishers To Receive Notifications' | t('workflow'),
-        instructions: 'Select all, or specific publishers to receive email notifications. By default, all will be notified.' | t('workflow'),
-        id: 'selectedPublishers',
-        name: 'selectedPublishers',
-        values: settings.selectedPublishers,
-        options: publishers,
-        showAllOption: true,
-        warning: macros.configWarning('selectedPublishers', 'workflow'),
-    }) }}
-{% else %}
-    <div class="field">
-        <div class="heading">
-            <label>
-                {{ "Publishers To Receive Notifications" | t('workflow') }}
-            </label>
-
-            <div class="instructions">
-                <p>{{ "Select all, or specific publishers to receive email notifications. By default, all will be notified." | t('workflow') }}</p>
-            </div>
-        </div>
-
-        <p class="small warning">
-            {{ "Select a Publisher User Group first." | t('workflow') }}
-        </p>
-    </div>
-{% endif %}
+{{ forms.selectField({
+    label: 'Publisher Notifications User Group' | t('workflow'),
+    instructions: 'By default, all users in the "Publisher User Group" will receive email notifications. Set a specific group to receive email notifications.' | t('workflow'),
+    id: 'publisherNotificationsUserGroup',
+    name: 'publisherNotificationsUserGroup',
+    value: settings.publisherNotificationsUserGroup,
+    options: userGroups,
+    warning: macros.configWarning('publisherNotificationsUserGroup', 'workflow'),
+}) }}
 
 {{ forms.lightswitchField({
     label: 'Published Author Notifications' | t('workflow'),

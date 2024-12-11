@@ -22,37 +22,19 @@ class BaseController extends Controller
     {
         $settings = Workflow::$plugin->getSettings();
 
-        $publishers = [];
+        $userGroups = [
+            ['label' => Craft::t('workflow', 'All Publishers'), 'value' => ''],
+        ];
 
-        if ($settings->publisherUserGroup) {
-            $publisherUserGroup = $settings->publisherUserGroup;
-
-            // Backward-compatibility support for config files, which won't be migrated
-            if (!is_array($publisherUserGroup)) {
-                Craft::$app->getDeprecator()->log('publisherUserGroup', 'The `publisherUserGroup` setting has been updated, and will cause a fatal error in Craft 4. Please review our [docs](https://verbb.io/craft-plugins/workflow/docs/get-started/configuration).');
-
-                $publisherUserGroupUid = $publisherUserGroup;
-                $publisherUserGroup = [];
-
-                foreach (Craft::$app->getSites()->getAllSites() as $site) {
-                    $publisherUserGroup[$site->uid] = $publisherUserGroupUid;
-                }
-            }
-
-            foreach ($publisherUserGroup as $siteUid => $publisherUserGroupUid) {
-                $publisherUserGroupId = Db::idByUid(Table::USERGROUPS, $publisherUserGroupUid);
-
-                foreach (User::find()->groupId($publisherUserGroupId)->all() as $user) {
-                    $publishers[] = ['value' => $user->id, 'label' => (string)$user];
-                }
-            }
+        foreach (Craft::$app->getUserGroups()->getAllGroups() as $userGroup) {
+            $userGroups[] = ['label' => $userGroup->name, 'value' => $userGroup->uid];
         }
 
-        $publishers = array_unique($publishers, SORT_REGULAR);
+        $userGroups = array_unique($userGroups, SORT_REGULAR);
 
         return $this->renderTemplate('workflow/settings', [
             'settings' => $settings,
-            'publishers' => $publishers,
+            'userGroups' => $userGroups,
         ]);
     }
 

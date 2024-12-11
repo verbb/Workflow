@@ -117,20 +117,7 @@ class Emails extends Component
 
         $settings = Workflow::$plugin->getSettings();
 
-        $publisherGroup = $settings->getPublisherUserGroup($entry->site);
-
-        if (!$publisherGroup) {
-            Workflow::log('No publisher group found to send notifications to.');
-        }
-
-        $query = User::find()->groupId($publisherGroup->id);
-
-        // Check settings to see if we should email all publishers or not
-        if (isset($settings->selectedPublishers) && $settings->selectedPublishers != '*') {
-            $query->id($settings->selectedPublishers);
-        }
-
-        $publishers = $query->all();
+        $publishers = $settings->getPublishersForNotificationEmail($entry->site);
 
         // Fire a 'preparePublisherEmail' event
         $event = new PrepareEmailEvent([
