@@ -201,9 +201,16 @@ class Service extends Component
         }
     }
 
-    public function onAfterApplyDraft(DraftEvent $event): void
+    public function onBeforeApplyDraft(DraftEvent $event): void
     {
         if (!($event->draft instanceof Entry)) {
+            return;
+        }
+
+        // Because we're using "beforeApply" for complicated reasons, we should at least check if things validate first
+        $event->draft->setScenario(Element::SCENARIO_LIVE);
+        
+        if (!$event->draft->validate()) {
             return;
         }
 
