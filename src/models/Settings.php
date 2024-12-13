@@ -3,6 +3,7 @@ namespace verbb\workflow\models;
 
 use Craft;
 use craft\base\Model;
+use craft\elements\User;
 use craft\helpers\ArrayHelper;
 
 class Settings extends Model
@@ -26,10 +27,13 @@ class Settings extends Model
     public bool $reviewerApprovalNotifications = false;
     public bool $publisherNotifications = true;
     public bool $publishedAuthorNotifications = false;
-    public mixed $selectedPublishers = '*';
+    public ?string $publisherNotificationsUserGroup = null;
 
     // Permissions
     public mixed $enabledSections = '*';
+
+    // Deprecated
+    public mixed $selectedPublishers = '*';
 
 
     // Public Methods
@@ -114,5 +118,17 @@ class Settings extends Model
     public function getPublisherNotesRequired($site)
     {
         return $this->publisherNotesRequired[$site->uid] ?? false;
+    }
+
+    public function getPublishersForNotificationEmail($site): array
+    {
+        // Get the user group for email notifications
+        $publisherGroup = $this->publisherNotificationsUserGroup ?? $this->getPublisherUserGroup($site);
+
+        if (!$publisherGroup) {
+            return [];
+        }
+
+        return User::find()->groupId($publisherGroup->id)->all();
     }
 }

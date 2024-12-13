@@ -23,7 +23,7 @@ return [
         'reviewerApprovalNotifications' => false,
         'publisherNotifications' => true,
         'publishedAuthorNotifications' => false,
-        'selectedPublishers' => '*',
+        'publisherNotificationsUserGroup' => null,
 
         // Permissions
         'enabledSections' => '*',
@@ -48,7 +48,7 @@ Notifications
 - `reviewerApprovalNotifications` - Whether email notifications should be delivered to editors when each reviewer approves an entry after review.
 - `publisherNotifications` - Whether email notifications should be delivered to publishers when editors submit an entry for review.
 - `publishedAuthorNotifications` - Whether email notifications should be delivered to the entry author when approved and published by a Publisher.
-- `selectedPublishers` - An array of user IDs of publishers to receive email notifications. Use '\*' for all.
+- `publisherNotificationsUserGroup` - The user group UID to have email notifications for publishers sent to. By default, all users in the `publisherUserGroup` will receive email notifications.
 
 Permissions
 - `enabledSections` - An array of section UIDs to enable submissions on. Use '\*' for all.

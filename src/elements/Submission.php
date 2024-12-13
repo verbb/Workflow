@@ -109,9 +109,8 @@ class Submission extends Element
     protected static function defineSortOptions(): array
     {
         return [
+            'id' => Craft::t('workflow', 'Submission'),
             'ownerId' => Craft::t('workflow', 'Entry'),
-            'editorId' => Craft::t('workflow', 'Editor'),
-            'publisherId' => Craft::t('workflow', 'Publisher'),
             'lastReviewDate' => Craft::t('workflow', 'Last Reviewed'),
             'dateCreated' => Craft::t('workflow', 'Date Submitted'),
         ];
@@ -397,6 +396,13 @@ class Submission extends Element
         }
 
         return $canReview;
+    }
+
+    public function canUserPublish(User $user, $site): bool
+    {
+        $settings = Workflow::$plugin->getSettings();
+
+        return $user->isInGroup($settings->getPublisherUserGroup($site));
     }
 
     public function afterSave(bool $isNew): void

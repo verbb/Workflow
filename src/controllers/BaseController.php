@@ -22,25 +22,19 @@ class BaseController extends Controller
     {
         $settings = Workflow::$plugin->getSettings();
 
-        $publishers = [];
+        $userGroups = [
+            ['label' => Craft::t('workflow', 'All Publishers'), 'value' => ''],
+        ];
 
-        if ($settings->publisherUserGroup) {
-            $publisherUserGroup = $settings->publisherUserGroup;
-
-            foreach ($publisherUserGroup as $siteUid => $publisherUserGroupUid) {
-                $publisherUserGroupId = Db::idByUid(Table::USERGROUPS, $publisherUserGroupUid);
-
-                foreach (User::find()->groupId($publisherUserGroupId)->all() as $user) {
-                    $publishers[] = ['value' => $user->id, 'label' => (string)$user];
-                }
-            }
+        foreach (Craft::$app->getUserGroups()->getAllGroups() as $userGroup) {
+            $userGroups[] = ['label' => $userGroup->name, 'value' => $userGroup->uid];
         }
 
-        $publishers = array_unique($publishers, SORT_REGULAR);
+        $userGroups = array_unique($userGroups, SORT_REGULAR);
 
         return $this->renderTemplate('workflow/settings', [
             'settings' => $settings,
-            'publishers' => $publishers,
+            'userGroups' => $userGroups,
         ]);
     }
 
