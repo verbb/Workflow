@@ -1,5 +1,20 @@
 # Changelog
 
+## 3.0.6 - 2025-02-02
+
+### Added
+- Add “Publisher Notifications User Group” to optionally specify a user group just for publisher notifications.
+
+### Changed
+- Change apply-draft behaviour to use onBeforeApplyDraft to handle applying drafts on existing entries, before the draft is deleted.
+- When applying a draft entry, and a pending submission is found, and the current user is a publisher, the submission is now automatically approved.
+
+### Fixed
+- Fix an error when editors make a submission on a new draft for an existing entry.
+
+### Removed
+- Remove “Editor” and “Publisher” sort options for submission index.
+
 ## 3.0.5 - 2024-11-28
 
 ### Fixed
