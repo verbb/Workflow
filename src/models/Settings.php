@@ -147,7 +147,11 @@ class Settings extends Model
     public function getPublishersForNotificationEmail($site): array
     {
         // Get the user group for email notifications
-        $publisherGroup = $this->publisherNotificationsUserGroup ?? $this->getPublisherUserGroup($site);
+        if ($this->publisherNotificationsUserGroup) {
+            $publisherGroup = Craft::$app->getUserGroups()->getGroupByUid($this->publisherNotificationsUserGroup);
+        }
+
+        $publisherGroup = $publisherGroup ?? $this->getPublisherUserGroup($site);
 
         if (!$publisherGroup) {
             return [];
