@@ -119,7 +119,18 @@ class Review extends Model
         }
 
         if ($this->elementId !== null) {
-            return $this->_element = Craft::$app->getElements()->getElementById($this->elementId, null, $this->elementSiteId);
+            // Ensure that we fetch the correct entry based on whether a draft or not. Note that ID will be different for draft or not.
+            // Using an element query is also easier than `getElementById()` for drafts.
+            $elementType = Craft::$app->getElements()->getElementTypeById($this->elementId);
+            $elementQuery = Craft::$app->getElements()->createElementQuery($elementType)->siteId($this->elementSiteId);
+
+            if ($this->draftId) {
+                $elementQuery->draftId($this->draftId)->draftOf($this->elementId);
+            } else {
+                $elementQuery->id($this->elementId);
+            }
+
+            return $this->_element = $elementQuery->one();
         }
 
         return null;
